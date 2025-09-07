@@ -15,7 +15,7 @@ interface ChatWindowProps {
 export default function ChatWindow({ token, currentUserId, username }: ChatWindowProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState('');
-  const [connectionState, setConnectionState] = useState('Disconnected');
+  const [, setConnectionState] = useState('Disconnected');
   const [connectedUsers, setConnectedUsers] = useState<string[]>([]);
   const [isConnecting, setIsConnecting] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -132,7 +132,7 @@ export default function ChatWindow({ token, currentUserId, username }: ChatWindo
       }
       signalRService.disconnect();
     };
-  }, [token, currentUserId]);
+  }, [token, currentUserId, username]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });

@@ -1,6 +1,5 @@
-import { Message, MessageReaction } from '@/types/auth';
+import { Message } from '@/types/auth';
 import MessageReactions from './MessageReactions';
-import { useState } from 'react';
 
 interface MessageListProps {
   messages: Message[];

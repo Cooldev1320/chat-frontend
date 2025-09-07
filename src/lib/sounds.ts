@@ -6,7 +6,7 @@ class SoundService {
       // Initialize on first user interaction
       if (typeof window !== 'undefined') {
         const initAudio = () => {
-          this.audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+          this.audioContext = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
           document.removeEventListener('click', initAudio);
           document.removeEventListener('keydown', initAudio);
         };
