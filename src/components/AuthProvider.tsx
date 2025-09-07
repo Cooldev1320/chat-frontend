@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import { AuthContextType, User, LoginData, RegisterData } from '@/types/auth';
+import { AuthContextType, User, LoginRequest, RegisterRequest } from '@/types/auth';
 import { authApi, ApiError } from '@/lib/api';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -59,7 +59,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, [user, token, pathname, mounted, router]);
 
-  const login = async (data: LoginData) => {
+  const login = async (data: LoginRequest) => {
     setLoading(true);
     try {
       const response = await authApi.login(data);
@@ -82,7 +82,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const register = async (data: RegisterData) => {
+  const register = async (data: RegisterRequest) => {
     setLoading(true);
     try {
       const response = await authApi.register(data);

@@ -1,11 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { LoginData, RegisterData } from '@/types/auth';
+import { LoginRequest, RegisterRequest } from '@/types/auth';
 
 interface AuthFormProps {
   mode: 'login' | 'register';
-  onSubmit: (data: LoginData | RegisterData) => Promise<void>;
+  onSubmit: (data: LoginRequest | RegisterRequest) => Promise<void>;
   loading: boolean;
   error: string | null;
 }

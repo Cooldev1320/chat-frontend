@@ -3,13 +3,13 @@
 import { useState } from 'react';
 import { useAuth } from '@/components/AuthProvider';
 import AuthForm from '@/components/AuthForm';
-import { RegisterData } from '@/types/auth';
+import { RegisterRequest } from '@/types/auth';
 
 export default function RegisterPage() {
   const { register, loading } = useAuth();
   const [error, setError] = useState<string | null>(null);
 
-  const handleRegister = async (data: RegisterData) => {
+  const handleRegister = async (data: RegisterRequest) => {
     try {
       setError(null);
       await register(data);
