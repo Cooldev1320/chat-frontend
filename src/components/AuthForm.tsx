@@ -23,7 +23,7 @@ export default function AuthForm({ mode, onSubmit, loading, error }: AuthFormPro
     if (mode === 'login') {
       await onSubmit({ email: formData.email, password: formData.password });
     } else {
-      await onSubmit(formData as RegisterData);
+      await onSubmit(formData as RegisterRequest);
     }
   };
 
@@ -37,7 +37,6 @@ export default function AuthForm({ mode, onSubmit, loading, error }: AuthFormPro
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
-        {/* Header */}
         <div className="text-center">
           <div className="mx-auto h-12 w-12 bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg flex items-center justify-center mb-6">
             <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -52,7 +51,6 @@ export default function AuthForm({ mode, onSubmit, loading, error }: AuthFormPro
           </p>
         </div>
 
-        {/* Form */}
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-xl p-8 border border-white/20">
           <form className="space-y-6" onSubmit={handleSubmit}>
             {mode === 'register' && (
