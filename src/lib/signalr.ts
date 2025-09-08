@@ -42,8 +42,10 @@ class SignalRService {
 
     console.log('Attempting to connect to SignalR with token:', token.substring(0, 20) + '...');
 
+    const signalRUrl = process.env.NEXT_PUBLIC_SIGNALR_URL || 'http://localhost:5000/chathub';
+    
     this.connection = new HubConnectionBuilder()
-      .withUrl(`http://localhost:5000/chathub`, {
+      .withUrl(signalRUrl, {
         accessTokenFactory: () => token,
         skipNegotiation: false,
         transport: undefined

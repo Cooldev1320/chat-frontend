@@ -1,6 +1,6 @@
 import { LoginData, RegisterData, AuthResponse } from '@/types/auth';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
 class ApiError extends Error {
   constructor(public status: number, message: string) {
@@ -10,7 +10,7 @@ class ApiError extends Error {
 }
 
 async function apiRequest<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
-  const url = `${API_BASE_URL}${endpoint}`;
+  const url = `${API_BASE_URL}/api${endpoint}`;
   
   const config: RequestInit = {
     headers: {
