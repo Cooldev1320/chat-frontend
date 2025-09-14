@@ -1,6 +1,7 @@
 # ChatApp Frontend
 
 A modern, real-time chat application frontend built with Next.js 15, React 19, TypeScript, and Tailwind CSS. Features real-time messaging, emoji reactions, user authentication, and a responsive design.
+<video src="https://github.com/user-attachments/assets/36e37988-2c73-4df7-a5c7-a966b2549916" autoplay loop muted playsinline width="600"></video>
 
 ## 🚀 Features
 
